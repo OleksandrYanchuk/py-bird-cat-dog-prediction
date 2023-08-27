@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classify Image</title>
+</head>
+<body>
+    <h1>Classify Image</h1>
+
+    <!-- Додайте форму для завантаження зображення -->
+    <form action="/classify" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*">
+        <button type="submit" name="action" value="classify">Перевірити</button>
+    </form>
+
+    <!-- Відображення зображення та результату -->
+    {% if image_path %}
+        <img src="{{ image_path }}" alt="Uploaded Image" style="max-width: 100%;">
+        <p>{{ result }}</p>
+    {% endif %}
+</body>
+</html>
