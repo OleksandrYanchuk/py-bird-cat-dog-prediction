@@ -9,6 +9,15 @@ import threading
 app = Flask(__name__)
 
 STATIC_FOLDER = "static"
+
+
+def create_static_folders():
+    images_folder = os.path.join(STATIC_FOLDER, "images")
+    uploads_folder = os.path.join(STATIC_FOLDER, "uploads")
+    os.makedirs(images_folder, exist_ok=True)
+    os.makedirs(uploads_folder, exist_ok=True)
+
+
 UPLOAD_FOLDER = "static/uploads/"
 
 MAX_FILE_AGE = 5 * 60
@@ -30,7 +39,9 @@ delete_thread = threading.Thread(target=delete_old_files)
 delete_thread.daemon = True
 delete_thread.start()
 
-cnn_model = tf.keras.models.load_model(STATIC_FOLDER + "/models/" + "bird_cat_dog_final_save_at_68.h5")
+cnn_model = tf.keras.models.load_model(
+    STATIC_FOLDER + "/models/" + "cat_dog_other_28.h5"
+)
 
 
 @app.route("/")
@@ -52,6 +63,8 @@ def classify_get():
     return render_template("classify.html")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
+    create_static_folders()
+    app.run()
     app.debug = True
     app.run(debug=True)

@@ -1,7 +1,7 @@
 import tensorflow as tf
 
 IMAGE_SIZE = (180, 180)
-CLASS_NAMES = ["bird", "cat", "dog"]
+CLASS_NAMES = ["cat", "dog", "other"]
 
 
 def preprocess_image(image):
@@ -12,9 +12,7 @@ def preprocess_image(image):
 
 
 def load_and_preprocess_image(path: str):
-    image = tf.keras.preprocessing.image.load_img(
-        path, target_size=IMAGE_SIZE
-    )
+    image = tf.keras.preprocessing.image.load_img(path, target_size=IMAGE_SIZE)
     return preprocess_image(image)
 
 
@@ -24,7 +22,5 @@ def classify_image(model, image_path: str):
     class_probabilities = prediction[0]
     predicted_class_index = class_probabilities.argmax()
     predicted_class_name = CLASS_NAMES[predicted_class_index]
-    result_text = (
-        f"Я думаю, що це на {100 * class_probabilities[predicted_class_index]:.2f}% {predicted_class_name}!"
-    )
+    result_text = f"Я думаю, що це на {100 * class_probabilities[predicted_class_index]:.2f}% {predicted_class_name}!"
     return result_text
