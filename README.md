@@ -1,5 +1,5 @@
 # py-cat-dog-other-prediction
-## online service for predicting which animal is depicted in the picture (bird, cat or dog)
+## online service for predicting which animal is depicted in the picture (cat, dog or other)
 
 ## Setup and Local Installation
 
