@@ -40,7 +40,7 @@ delete_thread.daemon = True
 delete_thread.start()
 
 cnn_model = tf.keras.models.load_model(
-    STATIC_FOLDER + "/models/" + "cat_dog_other_28.h5"
+    STATIC_FOLDER + "/models/" + "cat_dog_other_29.h5"
 )
 
 
