@@ -20,7 +20,7 @@ def create_static_folders():
 
 UPLOAD_FOLDER = "static/uploads/"
 
-MAX_FILE_AGE = 5 * 60
+MAX_FILE_AGE = 3
 
 
 def delete_old_files():
@@ -31,7 +31,7 @@ def delete_old_files():
                 file_age = time.time() - os.path.getctime(file_path)
                 if file_age > MAX_FILE_AGE:
                     os.remove(file_path)
-        time.sleep(60)  # Перевіряємо раз в хвилину
+        time.sleep(3)  # Перевіряємо раз в хвилину
 
 
 # Запустити фоновий потік для видалення старих файлів
@@ -40,7 +40,7 @@ delete_thread.daemon = True
 delete_thread.start()
 
 cnn_model = tf.keras.models.load_model(
-    STATIC_FOLDER + "/models/" + "cat_dog_other_29.h5"
+    STATIC_FOLDER + "/models/" + "cat_dog_other_70.h5"
 )
 
 
