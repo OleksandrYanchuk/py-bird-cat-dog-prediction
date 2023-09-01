@@ -1,5 +1,5 @@
-# py-bird-cat-dog-prediction
-## online service for predicting which animal is depicted in the picture (bird, cat or dog)
+# py-cat-dog-other-prediction
+## online service for predicting which animal is depicted in the picture (cat, dog or other)
 
 ## Setup and Local Installation
 
@@ -35,4 +35,4 @@ pip install -r requirements.txt
 
 #### 7. Run app.py
 
-#### 8. Open your web browser and go to http://localhost:8000 to access the application.
+#### 8. Open your web browser and go to http://127.0.0.1:5000 to access the application.
