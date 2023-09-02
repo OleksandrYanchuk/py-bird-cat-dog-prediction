@@ -1,3 +1,8 @@
+import os
+
+os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
+
+
 import tensorflow as tf
 
 IMAGE_SIZE = (180, 180)
